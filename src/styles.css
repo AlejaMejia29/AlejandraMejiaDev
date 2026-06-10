@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  scroll-behavior: smooth;
+
+  --background-rgb: 19 19 19;
+  --on-background-rgb: 229 226 225;
+  --on-surface-rgb: 229 226 225;
+  --on-surface-variant-rgb: 211 195 189;
+  --primary-rgb: 255 222 209;
+  --secondary-rgb: 174 198 255;
+  --surface-rgb: 19 19 19;
+  --surface-container-rgb: 32 31 31;
+  --surface-container-low-rgb: 26 25 25;
+  --surface-container-lowest-rgb: 10 10 10;
+  --outline-rgb: 156 142 136;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --subtle-border: rgba(255, 255, 255, 0.1);
+  --input-border: rgba(255, 255, 255, 0.2);
+  --chip-bg: rgba(255, 255, 255, 0.05);
+}
+
+html.light-theme {
+  --background-rgb: 248 246 244;
+  --on-background-rgb: 28 25 23;
+  --on-surface-rgb: 28 25 23;
+  --on-surface-variant-rgb: 87 83 78;
+  --primary-rgb: 154 92 77;
+  --secondary-rgb: 79 107 154;
+  --surface-rgb: 248 246 244;
+  --surface-container-rgb: 238 233 229;
+  --surface-container-low-rgb: 240 236 233;
+  --surface-container-lowest-rgb: 255 255 255;
+  --outline-rgb: 120 113 108;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --subtle-border: rgba(0, 0, 0, 0.08);
+  --input-border: rgba(0, 0, 0, 0.15);
+  --chip-bg: rgba(0, 0, 0, 0.04);
+}
+
+body {
+  min-height: max(884px, 100dvh);
+  margin: 0;
+  background-color: rgb(var(--background-rgb));
+  color: rgb(var(--on-background-rgb));
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

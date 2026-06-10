@@ -1,13 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html class="dark" lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Portafolio</title>
+  <title>Alejandra Mejía | Software Developer Portfolio</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'on-background': 'rgb(var(--on-background-rgb) / <alpha-value>)',
+            'surface-container': 'rgb(var(--surface-container-rgb) / <alpha-value>)',
+            background: 'rgb(var(--background-rgb) / <alpha-value>)',
+            'on-surface-variant': 'rgb(var(--on-surface-variant-rgb) / <alpha-value>)',
+            primary: 'rgb(var(--primary-rgb) / <alpha-value>)',
+            secondary: 'rgb(var(--secondary-rgb) / <alpha-value>)',
+            outline: 'rgb(var(--outline-rgb) / <alpha-value>)',
+            surface: 'rgb(var(--surface-rgb) / <alpha-value>)',
+            'on-surface': 'rgb(var(--on-surface-rgb) / <alpha-value>)',
+            'surface-container-low': 'rgb(var(--surface-container-low-rgb) / <alpha-value>)',
+            'surface-container-lowest': 'rgb(var(--surface-container-lowest-rgb) / <alpha-value>)'
+          },
+          borderRadius: {
+            DEFAULT: '0.25rem',
+            lg: '0.5rem',
+            xl: '0.75rem',
+            full: '9999px'
+          },
+          spacing: {
+            gutter: '24px',
+            'section-gap': '120px',
+            'container-max': '1200px'
+          },
+          fontFamily: {
+            'body-lg': ['Inter'],
+            'headline-md': ['Playfair Display'],
+            'display-lg': ['Playfair Display']
+          },
+          fontSize: {
+            'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+            'headline-md': ['32px', { lineHeight: '1.3', fontWeight: '600' }],
+            'display-lg': ['64px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+            'display-lg-mobile': ['40px', { lineHeight: '1.2', fontWeight: '700' }]
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body>
+<body class="bg-background text-on-background font-body-lg selection:bg-primary/30 overflow-x-hidden">
   <app-root></app-root>
 </body>
 </html>
