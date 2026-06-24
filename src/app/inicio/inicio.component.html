@@ -81,7 +81,7 @@
         <p class="font-headline-md text-headline-md text-on-surface-variant mb-6 leading-tight">{{ copy.hero.role }}</p>
         <p class="text-body-lg text-on-surface-variant/80 max-w-lg mb-10">{{ copy.hero.bio }}</p>
         <div class="flex flex-wrap gap-4 mb-12">
-          <a class="rose-gold-gradient px-8 py-4 rounded-lg font-bold text-background hover:scale-105 transition-transform duration-300" href="#work">{{ copy.hero.viewProjects }}</a>
+          <a class="rose-gold-gradient px-8 py-4 rounded-lg font-bold text-white hover:scale-105 transition-transform duration-300" href="#work">{{ copy.hero.viewProjects }}</a>
           <a
             class="px-8 py-4 rounded-lg border border-primary text-primary font-bold hover:bg-primary/10 transition-colors"
             [href]="cvUrl"
@@ -90,11 +90,29 @@
             rel="noopener noreferrer"
           >{{ copy.hero.downloadCv }}</a>
           <div class="flex items-center gap-4 ml-2">
-            <a class="p-2 glass-card rounded-full hover:text-primary transition-colors" href="#" title="GitHub">
-              <span class="material-symbols-outlined">code</span>
+            <a
+              class="social-link"
+              [href]="githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+              aria-label="GitHub"
+            >
+              <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
             </a>
-            <a class="p-2 glass-card rounded-full hover:text-primary transition-colors" href="#" title="LinkedIn">
-              <span class="material-symbols-outlined">person_pin</span>
+            <a
+              class="social-link"
+              [href]="linkedinUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+              aria-label="LinkedIn"
+            >
+              <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
             </a>
           </div>
         </div>
@@ -125,22 +143,12 @@
           <p class="text-body-lg text-on-surface-variant/90">{{ copy.about.p2 }}</p>
         </div>
         <div class="grid grid-cols-2 gap-6 reveal delay-100">
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <span class="block text-4xl font-bold rose-gold-text mb-2">15+</span>
-            <span class="text-sm uppercase tracking-widest text-on-surface-variant">{{ copy.about.stats[0] }}</span>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <span class="block text-4xl font-bold rose-gold-text mb-2">3+</span>
-            <span class="text-sm uppercase tracking-widest text-on-surface-variant">{{ copy.about.stats[1] }}</span>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <span class="block text-4xl font-bold rose-gold-text mb-2">24+</span>
-            <span class="text-sm uppercase tracking-widest text-on-surface-variant">{{ copy.about.stats[2] }}</span>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <span class="block text-4xl font-bold rose-gold-text mb-2">12+</span>
-            <span class="text-sm uppercase tracking-widest text-on-surface-variant">{{ copy.about.stats[3] }}</span>
-          </div>
+          @for (stat of copy.about.stats; track stat; let i = $index) {
+            <div class="glass-card p-8 rounded-2xl text-center">
+              <span class="block text-4xl font-bold rose-gold-text mb-2">{{ copy.about.statValues[i] }}</span>
+              <span class="text-sm uppercase tracking-widest text-on-surface-variant">{{ stat }}</span>
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -183,66 +191,61 @@
           <p class="text-on-surface-variant max-w-md">{{ copy.skills.subtitle }}</p>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-card p-8 rounded-3xl reveal">
-          <div class="w-12 h-12 rose-gold-gradient rounded-xl flex items-center justify-center mb-6">
-            <span class="material-symbols-outlined text-background" style="font-variation-settings: 'FILL' 1;">dns</span>
+      <div class="skills-carousel reveal">
+        <div class="skills-carousel__controls">
+          <button
+            type="button"
+            class="skills-carousel__nav"
+            (click)="prevSkill()"
+            [attr.aria-label]="copy.skills.prevLabel"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+
+          <div
+            class="skills-carousel__viewport"
+            (touchstart)="onSkillTouchStart($event)"
+            (touchend)="onSkillTouchEnd($event)"
+          >
+            <div class="skills-carousel__track" [style.transform]="'translateX(-' + activeSkillIndex * 100 + '%)'">
+              @for (group of copy.skills.groups; track group.title; let i = $index) {
+                <article class="skills-carousel__slide glass-card p-8 rounded-3xl">
+                  <div class="w-12 h-12 rose-gold-gradient rounded-xl flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">{{ skillIcons[i] }}</span>
+                  </div>
+                  <h3 class="font-bold text-xl mb-6">{{ group.title }}</h3>
+                  <ul class="skills-carousel__list">
+                    @for (skill of group.items; track skill) {
+                      <li class="skills-carousel__chip">{{ skill }}</li>
+                    }
+                  </ul>
+                </article>
+              }
+            </div>
           </div>
-          <h3 class="font-bold text-xl mb-6">{{ copy.skills.backend }}</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">Java / Spring Boot</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.expert }}</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">Node.js</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.advanced }}</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">RESTful APIs</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.expert }}</span>
-            </li>
-          </ul>
+
+          <button
+            type="button"
+            class="skills-carousel__nav"
+            (click)="nextSkill()"
+            [attr.aria-label]="copy.skills.nextLabel"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
         </div>
-        <div class="glass-card p-8 rounded-3xl reveal delay-100">
-          <div class="w-12 h-12 rose-gold-gradient rounded-xl flex items-center justify-center mb-6">
-            <span class="material-symbols-outlined text-background" style="font-variation-settings: 'FILL' 1;">grid_view</span>
-          </div>
-          <h3 class="font-bold text-xl mb-6">{{ copy.skills.frontend }}</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">Angular / React</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.senior }}</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">Tailwind CSS</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.advanced }}</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">TypeScript</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.advanced }}</span>
-            </li>
-          </ul>
-        </div>
-        <div class="glass-card p-8 rounded-3xl reveal delay-200">
-          <div class="w-12 h-12 rose-gold-gradient rounded-xl flex items-center justify-center mb-6">
-            <span class="material-symbols-outlined text-background" style="font-variation-settings: 'FILL' 1;">build</span>
-          </div>
-          <h3 class="font-bold text-xl mb-6">{{ copy.skills.tools }}</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">PostgreSQL / MySQL</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.architect }}</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">Docker / Git</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.fluent }}</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="text-on-surface-variant">UX/UI Design (Figma)</span>
-              <span class="text-primary text-xs font-mono">{{ copy.skills.levels.strategic }}</span>
-            </li>
-          </ul>
+
+        <div class="skills-carousel__dots" role="tablist" [attr.aria-label]="copy.skills.titleHighlight">
+          @for (group of copy.skills.groups; track group.title; let i = $index) {
+            <button
+              type="button"
+              class="skills-carousel__dot"
+              [class.is-active]="activeSkillIndex === i"
+              (click)="goToSkill(i)"
+              role="tab"
+              [attr.aria-selected]="activeSkillIndex === i"
+              [attr.aria-label]="group.title"
+            ></button>
+          }
         </div>
       </div>
     </div>
@@ -255,62 +258,47 @@
         <h2 class="font-display-lg text-headline-md">
           {{ copy.work.titlePrefix }} <span class="rose-gold-text">{{ copy.work.titleHighlight }}</span>
         </h2>
-        <a class="group flex items-center gap-2 text-primary hover:underline" href="#">
+        <a class="group flex items-center gap-2 text-primary hover:underline" [href]="githubUrl" target="_blank" rel="noopener noreferrer">
           {{ copy.work.exploreGithub }}
           <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="group relative reveal">
-          <div class="aspect-[16/10] overflow-hidden rounded-3xl glass-card relative mb-6">
-            <img
-              class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-              alt="Dashboard de analítica financiera"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pPNovL_IdagODagYnt3p4h9gh3I6JQqQb1PqzIRb_Ua-juAMtF_eiD0gZMJUNsmHMjht1Eio1EWFJp2rBDobgor44qJmaB6cNS0MZufOsdIDYUbOrNoZEhZVbC1QUw0x_lQRvnsLV8M1pskEY5bf3-cIJdjIf2uimk3b7_XFT-NvCMNLz_d4TAd8s51x0z701mvxT-EpcgL-pIurAJNH8HfIokUqfFGtqi4sqHsRxMExaezggHC-dtqe_gpS4HvbYWMvMD3nHazj"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
-          </div>
-          <div class="flex justify-between items-start">
-            <div>
-              <h3 class="font-bold text-2xl mb-2 group-hover:text-primary transition-colors">{{ copy.work.projects[0].title }}</h3>
-              <p class="text-on-surface-variant mb-4">{{ copy.work.projects[0].description }}</p>
+        @for (project of copy.work.projects; track project.title; let i = $index) {
+          <div class="group relative reveal" [class.delay-100]="i === 1" [class.delay-200]="i === 2" [class.delay-300]="i === 3">
+            <div class="project-cover aspect-[16/10] overflow-hidden rounded-3xl glass-card relative mb-6">
+              <img
+                class="project-cover__img"
+                [src]="project.image"
+                [alt]="project.imageAlt"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-bold text-2xl mb-2 group-hover:text-primary transition-colors">{{ project.title }}</h3>
+                <p class="text-on-surface-variant mb-4">{{ project.description }}</p>
+                <div class="flex flex-wrap gap-2">
+                  @for (tag of project.tags; track tag) {
+                    <span class="px-3 py-1 rounded-full theme-chip border text-xs font-mono text-primary">{{ tag }}</span>
+                  }
+                </div>
+              </div>
               <div class="flex gap-2">
-                <span class="px-3 py-1 rounded-full theme-chip border text-xs font-mono text-primary">Spring Boot</span>
-                <span class="px-3 py-1 rounded-full theme-chip border text-xs font-mono text-primary">Angular</span>
+                <a
+                  class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                  [href]="project.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="project.title"
+                >
+                  <span class="material-symbols-outlined text-sm">link</span>
+                </a>
               </div>
             </div>
-            <div class="flex gap-2">
-              <button class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary hover:text-background transition-all" type="button">
-                <span class="material-symbols-outlined text-sm">link</span>
-              </button>
-            </div>
           </div>
-        </div>
-        <div class="group relative reveal delay-100">
-          <div class="aspect-[16/10] overflow-hidden rounded-3xl glass-card relative mb-6">
-            <img
-              class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-              alt="Plataforma e-commerce de lujo"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiOJEo9I_-keVPEmVp2sISWmJ7aQ0ZM7ZD3QLjZxaymAjb5BbWF-jJmrgYAXzdaTjKba_bJul2MvK0lkyNFAqeCZ00QK0-DxDwHxI00CzAKn0iLmaEt2LtbOD0x5-J9XCN-E79EmQQ5s11mb_7lfd-7TB6CO83JkCrvgTHZ4NN2sFRfA4VYXVVCWhDcOtYyUJoXDsvRxdCAG7n4Jlpjj_sCWB1wLkehvQCOHDIT5sOd_mqz1tEyMx-SW7ri4o7RM8EHe9YqbaQ5Na4"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
-          </div>
-          <div class="flex justify-between items-start">
-            <div>
-              <h3 class="font-bold text-2xl mb-2 group-hover:text-primary transition-colors">{{ copy.work.projects[1].title }}</h3>
-              <p class="text-on-surface-variant mb-4">{{ copy.work.projects[1].description }}</p>
-              <div class="flex gap-2">
-                <span class="px-3 py-1 rounded-full theme-chip border text-xs font-mono text-primary">React</span>
-                <span class="px-3 py-1 rounded-full theme-chip border text-xs font-mono text-primary">Node.js</span>
-              </div>
-            </div>
-            <div class="flex gap-2">
-              <button class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary hover:text-background transition-all" type="button">
-                <span class="material-symbols-outlined text-sm">link</span>
-              </button>
-            </div>
-          </div>
-        </div>
+        }
       </div>
     </div>
   </section>
@@ -333,14 +321,34 @@
         </div>
         <div class="reveal delay-100">
           <h2 class="font-display-lg text-headline-md mb-12 rose-gold-text">{{ copy.education.certificationsTitle }}</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
             @for (cert of copy.education.certs; track cert.title) {
-              <div class="glass-card p-6 rounded-2xl flex items-center gap-4 hover:border-primary transition-colors">
-                <span class="material-symbols-outlined text-primary">verified</span>
-                <div>
-                  <p class="font-bold text-sm">{{ cert.title }}</p>
-                  <p class="text-xs text-on-surface-variant">{{ cert.issuer }}</p>
+              <div class="glass-card cert-card p-6 rounded-2xl flex flex-col gap-4 hover:border-primary transition-colors">
+                <div class="flex items-start gap-4">
+                  <span class="material-symbols-outlined text-primary shrink-0">verified</span>
+                  <div class="min-w-0">
+                    <p class="font-bold text-sm">{{ cert.title }}</p>
+                    <p class="text-xs text-on-surface-variant">{{ cert.issuer }}</p>
+                    <p class="text-xs font-mono text-primary/70 mt-1">{{ cert.year }}</p>
+                  </div>
                 </div>
+                <button
+                  type="button"
+                  class="cert-card__view"
+                  (click)="openCertificate(cert)"
+                >
+                  <span class="material-symbols-outlined text-base">image</span>
+                  {{ copy.education.viewCertificate }}
+                </button>
+              </div>
+            }
+          </div>
+          <h3 class="font-bold uppercase tracking-widest text-xs text-primary mb-4">{{ copy.education.languagesTitle }}</h3>
+          <div class="flex flex-wrap gap-4">
+            @for (lang of copy.education.languages; track lang.label) {
+              <div class="glass-card px-5 py-3 rounded-xl">
+                <span class="font-semibold text-sm">{{ lang.label }}</span>
+                <span class="text-on-surface-variant text-sm"> — {{ lang.level }}</span>
               </div>
             }
           </div>
@@ -373,7 +381,7 @@
           </div>
           <div class="flex flex-col h-full">
             <textarea class="w-full bg-transparent border-0 border-b theme-input-border focus:border-primary focus:ring-0 py-4 text-on-background transition-all placeholder:text-on-surface-variant/40 resize-none flex-grow" [placeholder]="copy.contact.messagePlaceholder" rows="6"></textarea>
-            <button class="mt-8 rose-gold-gradient py-5 rounded-xl font-bold text-background uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all" type="submit">{{ copy.contact.send }}</button>
+            <button class="mt-8 rose-gold-gradient py-5 rounded-xl font-bold text-white uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all" type="submit">{{ copy.contact.send }}</button>
           </div>
         </form>
         <div class="mt-20 flex flex-wrap justify-center gap-12 text-on-surface-variant reveal delay-200">
@@ -410,9 +418,23 @@
     <div>
       <h4 class="font-bold uppercase tracking-widest text-xs text-primary mb-6">{{ copy.footer.social }}</h4>
       <div class="flex gap-4">
-        <a class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:translate-y-[-2px] transition-transform text-on-surface-variant hover:text-primary" href="#">GitHub</a>
-        <a class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:translate-y-[-2px] transition-transform text-on-surface-variant hover:text-primary" href="#">LinkedIn</a>
-        <a class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:translate-y-[-2px] transition-transform text-on-surface-variant hover:text-primary" href="#">Twitter</a>
+        <a
+          class="social-link social-link--footer"
+          [href]="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="GitHub"
+          aria-label="GitHub"
+        >
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+        <a class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:translate-y-[-2px] transition-transform text-on-surface-variant hover:text-primary" [href]="linkedinUrl" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
       </div>
     </div>
     <div class="md:col-span-3 pt-12 border-t theme-border flex flex-col md:flex-row justify-between items-center gap-6">
@@ -424,3 +446,30 @@
     </div>
   </div>
 </footer>
+
+@if (activeCertificate) {
+  <div
+    class="cert-modal"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="activeCertificate.title"
+    (click)="closeCertificate()"
+  >
+    <div class="cert-modal__panel" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="cert-modal__close"
+        (click)="closeCertificate()"
+        [attr.aria-label]="copy.education.closeCertificate"
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <p class="cert-modal__title">{{ activeCertificate.title }}</p>
+      <img
+        class="cert-modal__img"
+        [src]="activeCertificate.image"
+        [alt]="activeCertificate.imageAlt"
+      />
+    </div>
+  </div>
+}

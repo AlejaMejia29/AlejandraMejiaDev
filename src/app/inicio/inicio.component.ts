@@ -10,7 +10,7 @@ import {
   OnInit,
   PLATFORM_ID
 } from '@angular/core';
-import { I18N, Lang } from './inicio-i18n';
+import { I18N, CertItem, Lang } from './inicio-i18n';
 
 @Component({
   selector: 'app-inicio',
@@ -24,6 +24,8 @@ export class InicioComponent implements OnInit, AfterViewInit, OnDestroy {
   isEnglish = true;
   isDarkMode = true;
   activeSection: 'home' | 'about' | 'experience' | 'skills' | 'work' | 'contact' = 'home';
+  activeSkillIndex = 0;
+  activeCertificate: CertItem | null = null;
   private revealOnScroll?: () => void;
   private readonly sectionIds = ['home', 'about', 'experience', 'skills', 'work', 'contact'] as const;
 
@@ -41,9 +43,12 @@ export class InicioComponent implements OnInit, AfterViewInit, OnDestroy {
     return I18N[this.isEnglish ? 'en' : 'es'];
   }
 
-  readonly experienceIcons = ['work', 'laptop_mac', 'terminal'];
+  readonly experienceIcons = ['assignment', 'language', 'terminal'];
+  readonly skillIcons = ['dns', 'grid_view', 'build'];
   readonly cvUrl = 'assets/alejandra-mejia-cv.pdf';
   readonly cvDownloadName = 'Alejandra-Mejia-Patino-CV.pdf';
+  readonly githubUrl = 'https://github.com/AlejaMejia29';
+  readonly linkedinUrl = 'https://www.linkedin.com/in/alejandra-mejia29/';
 
   get themeIcon(): string {
     return this.isDarkMode ? 'light_mode' : 'dark_mode';
@@ -72,6 +77,10 @@ export class InicioComponent implements OnInit, AfterViewInit, OnDestroy {
       window.removeEventListener('scroll', this.revealOnScroll);
       window.removeEventListener('load', this.revealOnScroll);
     }
+
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
   }
 
   toggleDarkMode(): void {
@@ -81,10 +90,65 @@ export class InicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   toggleLanguage(): void {
     this.isEnglish = !this.isEnglish;
+    this.activeSkillIndex = 0;
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('lang', this.isEnglish ? 'en' : 'es');
     }
   }
+
+  prevSkill(): void {
+    const total = this.copy.skills.groups.length;
+    this.activeSkillIndex = (this.activeSkillIndex - 1 + total) % total;
+  }
+
+  nextSkill(): void {
+    const total = this.copy.skills.groups.length;
+    this.activeSkillIndex = (this.activeSkillIndex + 1) % total;
+  }
+
+  goToSkill(index: number): void {
+    this.activeSkillIndex = index;
+  }
+
+  openCertificate(cert: CertItem): void {
+    this.activeCertificate = cert;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  closeCertificate(): void {
+    this.activeCertificate = null;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscapeKey(): void {
+    if (this.activeCertificate) {
+      this.closeCertificate();
+    }
+  }
+
+  onSkillTouchStart(event: TouchEvent): void {
+    this.skillTouchStartX = event.changedTouches[0].screenX;
+  }
+
+  onSkillTouchEnd(event: TouchEvent): void {
+    const diff = event.changedTouches[0].screenX - this.skillTouchStartX;
+    if (Math.abs(diff) < 50) {
+      return;
+    }
+
+    if (diff > 0) {
+      this.prevSkill();
+    } else {
+      this.nextSkill();
+    }
+  }
+
+  private skillTouchStartX = 0;
 
   isNavActive(section: string): boolean {
     return this.activeSection === section;
@@ -156,6 +220,7 @@ export class InicioComponent implements OnInit, AfterViewInit, OnDestroy {
     const html = document.documentElement;
     html.classList.toggle('light-theme', !this.isDarkMode);
     html.classList.toggle('dark', this.isDarkMode);
+    document.body.classList.toggle('light-theme', !this.isDarkMode);
     localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
   }
 

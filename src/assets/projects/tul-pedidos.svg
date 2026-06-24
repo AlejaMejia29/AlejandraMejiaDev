@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" fill="none">
+  <defs>
+    <linearGradient id="tul-bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151311"/>
+      <stop offset="1" stop-color="#252018"/>
+    </linearGradient>
+    <linearGradient id="tul-rose" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e7c1b1"/>
+      <stop offset="1" stop-color="#c49a88"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#tul-bg)"/>
+  <circle cx="130" cy="130" r="80" fill="#e7c1b1" fill-opacity="0.07"/>
+  <circle cx="850" cy="500" r="90" fill="#c49a88" fill-opacity="0.06"/>
+
+  <!-- Sidebar -->
+  <rect x="50" y="60" width="200" height="480" rx="20" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.08"/>
+  <rect x="74" y="92" width="152" height="32" rx="10" fill="url(#tul-rose)" fill-opacity="0.85"/>
+  <text x="150" y="113" text-anchor="middle" fill="#1a1412" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700">Pedidos TUL</text>
+  <rect x="74" y="148" width="120" height="10" rx="5" fill="#e7c1b1" fill-opacity="0.55"/>
+  <rect x="74" y="178" width="100" height="10" rx="5" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="74" y="208" width="110" height="10" rx="5" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="74" y="238" width="90" height="10" rx="5" fill="#ffffff" fill-opacity="0.12"/>
+  <text x="74" y="280" fill="#ffffff" fill-opacity="0.35" font-family="Inter,Arial,sans-serif" font-size="11">Ferreter&#237;a</text>
+  <text x="74" y="310" fill="#ffffff" fill-opacity="0.35" font-family="Inter,Arial,sans-serif" font-size="11">Vendedor</text>
+  <text x="74" y="340" fill="#ffffff" fill-opacity="0.35" font-family="Inter,Arial,sans-serif" font-size="11">Log&#237;stica</text>
+
+  <!-- Main dashboard -->
+  <rect x="280" y="60" width="630" height="480" rx="24" fill="#ffffff" fill-opacity="0.04" stroke="#e7c1b1" stroke-opacity="0.2"/>
+  <text x="310" y="100" fill="#ffffff" fill-opacity="0.85" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700">Seguimiento de pedidos</text>
+  <rect x="720" y="78" width="160" height="34" rx="17" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.1"/>
+  <text x="800" y="100" text-anchor="middle" fill="#e7c1b1" font-family="Inter,Arial,sans-serif" font-size="12">Buscar pedido...</text>
+
+  <!-- Order cards -->
+  <rect x="310" y="130" width="580" height="88" rx="16" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.08"/>
+  <rect x="330" y="152" width="44" height="44" rx="12" fill="url(#tul-rose)" fill-opacity="0.25"/>
+  <path d="M342 176h20M352 166v20" stroke="#e7c1b1" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="390" y="158" fill="#ffffff" fill-opacity="0.85" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">#PED-2847</text>
+  <text x="390" y="180" fill="#ffffff" fill-opacity="0.5" font-family="Inter,Arial,sans-serif" font-size="12">Cemento · 50 sacos</text>
+  <rect x="760" y="158" width="100" height="28" rx="14" fill="#4ade80" fill-opacity="0.15" stroke="#4ade80" stroke-opacity="0.35"/>
+  <text x="810" y="177" text-anchor="middle" fill="#86efac" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600">En tr&#225;nsito</text>
+
+  <rect x="310" y="236" width="580" height="88" rx="16" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.08"/>
+  <rect x="330" y="258" width="44" height="44" rx="12" fill="url(#tul-rose)" fill-opacity="0.25"/>
+  <rect x="338" y="268" width="28" height="20" rx="4" stroke="#e7c1b1" stroke-width="2" fill="none"/>
+  <path d="M338 272h28M352 268v-6h8" stroke="#e7c1b1" stroke-width="2" stroke-linecap="round"/>
+  <text x="390" y="264" fill="#ffffff" fill-opacity="0.85" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">#PED-2812</text>
+  <text x="390" y="286" fill="#ffffff" fill-opacity="0.5" font-family="Inter,Arial,sans-serif" font-size="12">Herramientas varias</text>
+  <rect x="760" y="264" width="100" height="28" rx="14" fill="#e7c1b1" fill-opacity="0.15" stroke="#e7c1b1" stroke-opacity="0.35"/>
+  <text x="810" y="283" text-anchor="middle" fill="#e7c1b1" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600">Despachado</text>
+
+  <!-- Timeline -->
+  <rect x="310" y="360" width="580" height="150" rx="16" fill="#ffffff" fill-opacity="0.03" stroke="#e7c1b1" stroke-opacity="0.15"/>
+  <text x="330" y="392" fill="#e7c1b1" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="600">Estado del pedido</text>
+  <line x1="360" y1="440" x2="820" y2="440" stroke="#ffffff" stroke-opacity="0.12" stroke-width="3"/>
+  <circle cx="360" cy="440" r="10" fill="#c49a88"/>
+  <circle cx="510" cy="440" r="10" fill="#c49a88"/>
+  <circle cx="660" cy="440" r="10" fill="#e7c1b1"/>
+  <circle cx="810" cy="440" r="10" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-opacity="0.3"/>
+  <text x="360" y="472" text-anchor="middle" fill="#ffffff" fill-opacity="0.45" font-family="Inter,Arial,sans-serif" font-size="10">Recibido</text>
+  <text x="510" y="472" text-anchor="middle" fill="#ffffff" fill-opacity="0.45" font-family="Inter,Arial,sans-serif" font-size="10">Preparado</text>
+  <text x="660" y="472" text-anchor="middle" fill="#e7c1b1" font-family="Inter,Arial,sans-serif" font-size="10">En camino</text>
+  <text x="810" y="472" text-anchor="middle" fill="#ffffff" fill-opacity="0.35" font-family="Inter,Arial,sans-serif" font-size="10">Entregado</text>
+</svg>

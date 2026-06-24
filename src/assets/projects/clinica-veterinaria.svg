@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" fill="none">
+  <defs>
+    <linearGradient id="cv-bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a1412"/>
+      <stop offset="1" stop-color="#2d211c"/>
+    </linearGradient>
+    <linearGradient id="cv-rose" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e7c1b1"/>
+      <stop offset="1" stop-color="#c49a88"/>
+    </linearGradient>
+    <radialGradient id="cv-glow" cx="0.5" cy="0.45" r="0.55">
+      <stop stop-color="#e7c1b1" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#e7c1b1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#cv-bg)"/>
+  <rect width="960" height="600" fill="url(#cv-glow)"/>
+  <circle cx="780" cy="120" r="90" fill="#e7c1b1" fill-opacity="0.06"/>
+  <circle cx="140" cy="480" r="120" fill="#c49a88" fill-opacity="0.08"/>
+
+  <rect x="80" y="90" width="420" height="420" rx="24" fill="#ffffff" fill-opacity="0.04" stroke="#e7c1b1" stroke-opacity="0.25"/>
+  <rect x="110" y="130" width="140" height="28" rx="14" fill="url(#cv-rose)" fill-opacity="0.85"/>
+  <text x="180" y="149" text-anchor="middle" fill="#1a1412" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700">REST API</text>
+  <rect x="110" y="180" width="360" height="12" rx="6" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="110" y="210" width="280" height="12" rx="6" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="110" y="250" width="360" height="56" rx="12" fill="#e7c1b1" fill-opacity="0.08" stroke="#e7c1b1" stroke-opacity="0.18"/>
+  <text x="130" y="275" fill="#e7c1b1" font-family="ui-monospace,monospace" font-size="14">GET /api/mascotas</text>
+  <text x="130" y="298" fill="#ffffff" fill-opacity="0.55" font-family="ui-monospace,monospace" font-size="12">POST /api/citas</text>
+  <rect x="110" y="330" width="360" height="56" rx="12" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="130" y="355" fill="#ffffff" fill-opacity="0.7" font-family="ui-monospace,monospace" font-size="12">Spring Boot · MySQL · Docker</text>
+  <text x="130" y="375" fill="#c49a88" font-family="ui-monospace,monospace" font-size="12">Java 17 · JPA · JUnit</text>
+
+  <rect x="560" y="120" width="320" height="360" rx="28" fill="#ffffff" fill-opacity="0.05" stroke="url(#cv-rose)" stroke-opacity="0.45"/>
+  <circle cx="720" cy="230" r="72" fill="url(#cv-rose)" fill-opacity="0.18"/>
+  <ellipse cx="700" cy="250" rx="18" ry="22" fill="#e7c1b1"/>
+  <ellipse cx="740" cy="250" rx="18" ry="22" fill="#e7c1b1"/>
+  <ellipse cx="680" cy="215" rx="14" ry="18" fill="#e7c1b1"/>
+  <ellipse cx="760" cy="215" rx="14" ry="18" fill="#e7c1b1"/>
+  <ellipse cx="720" cy="285" rx="28" ry="24" fill="#e7c1b1"/>
+  <rect x="708" y="330" width="24" height="64" rx="6" fill="#c49a88"/>
+  <rect x="688" y="350" width="64" height="24" rx="6" fill="#c49a88"/>
+  <text x="720" y="430" text-anchor="middle" fill="#ffffff" fill-opacity="0.85" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Cl&#237;nica Veterinaria</text>
+  <text x="720" y="458" text-anchor="middle" fill="#e7c1b1" font-family="Inter,Arial,sans-serif" font-size="14">Due&#241;os · Mascotas · Citas</text>
+</svg>
