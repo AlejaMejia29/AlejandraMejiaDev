@@ -266,7 +266,12 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         @for (project of copy.work.projects; track project.title; let i = $index) {
           <div class="group relative reveal" [class.delay-100]="i === 1" [class.delay-200]="i === 2" [class.delay-300]="i === 3">
-            <div class="project-cover aspect-[16/10] overflow-hidden rounded-3xl glass-card relative mb-6">
+            <button
+              type="button"
+              class="project-cover aspect-[16/10] overflow-hidden rounded-3xl glass-card relative mb-6 w-full text-left cursor-zoom-in"
+              (click)="openProject(project)"
+              [attr.aria-label]="copy.work.viewImage + ': ' + project.title"
+            >
               <img
                 class="project-cover__img"
                 [src]="project.image"
@@ -274,7 +279,10 @@
                 loading="lazy"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent pointer-events-none"></div>
-            </div>
+              <span class="project-cover__hint" aria-hidden="true">
+                <span class="material-symbols-outlined text-sm">zoom_in</span>
+              </span>
+            </button>
             <div class="flex justify-between items-start">
               <div>
                 <h3 class="font-bold text-2xl mb-2 group-hover:text-primary transition-colors">{{ project.title }}</h3>
@@ -446,6 +454,33 @@
     </div>
   </div>
 </footer>
+
+@if (activeProject) {
+  <div
+    class="cert-modal"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="activeProject.title"
+    (click)="closeProject()"
+  >
+    <div class="cert-modal__panel cert-modal__panel--wide" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="cert-modal__close"
+        (click)="closeProject()"
+        [attr.aria-label]="copy.work.closeImage"
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <p class="cert-modal__title">{{ activeProject.title }}</p>
+      <img
+        class="cert-modal__img"
+        [src]="activeProject.image"
+        [alt]="activeProject.imageAlt"
+      />
+    </div>
+  </div>
+}
 
 @if (activeCertificate) {
   <div

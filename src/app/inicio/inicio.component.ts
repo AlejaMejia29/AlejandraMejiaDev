@@ -10,7 +10,7 @@ import {
   OnInit,
   PLATFORM_ID
 } from '@angular/core';
-import { I18N, CertItem, Lang } from './inicio-i18n';
+import { I18N, CertItem, Lang, ProjectItem } from './inicio-i18n';
 
 @Component({
   selector: 'app-inicio',
@@ -26,6 +26,7 @@ export class InicioComponent implements OnInit, AfterViewInit, OnDestroy {
   activeSection: 'home' | 'about' | 'experience' | 'skills' | 'work' | 'contact' = 'home';
   activeSkillIndex = 0;
   activeCertificate: CertItem | null = null;
+  activeProject: ProjectItem | null = null;
   private revealOnScroll?: () => void;
   private readonly sectionIds = ['home', 'about', 'experience', 'skills', 'work', 'contact'] as const;
 
@@ -112,23 +113,39 @@ export class InicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   openCertificate(cert: CertItem): void {
     this.activeCertificate = cert;
-    if (isPlatformBrowser(this.platformId)) {
-      document.body.style.overflow = 'hidden';
-    }
+    this.updateBodyScroll();
   }
 
   closeCertificate(): void {
     this.activeCertificate = null;
-    if (isPlatformBrowser(this.platformId)) {
-      document.body.style.overflow = '';
-    }
+    this.updateBodyScroll();
+  }
+
+  openProject(project: ProjectItem): void {
+    this.activeProject = project;
+    this.updateBodyScroll();
+  }
+
+  closeProject(): void {
+    this.activeProject = null;
+    this.updateBodyScroll();
   }
 
   @HostListener('document:keydown.escape')
   onEscapeKey(): void {
     if (this.activeCertificate) {
       this.closeCertificate();
+    } else if (this.activeProject) {
+      this.closeProject();
     }
+  }
+
+  private updateBodyScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    document.body.style.overflow = this.activeCertificate || this.activeProject ? 'hidden' : '';
   }
 
   onSkillTouchStart(event: TouchEvent): void {

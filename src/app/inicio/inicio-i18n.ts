@@ -70,6 +70,8 @@ export interface PortfolioCopy {
     titlePrefix: string;
     titleHighlight: string;
     exploreGithub: string;
+    viewImage: string;
+    closeImage: string;
     projects: ProjectItem[];
   };
   education: {
@@ -122,15 +124,15 @@ export const I18N: Record<Lang, PortfolioCopy> = {
     hero: {
       badge: 'Available for Projects',
       iam: 'I am',
-      role: 'Software Developer',
-      bio: 'Software Engineering student with experience in full-stack web development using Java, Spring Boot, and Angular. Skilled in frontend development, UX/UI design, and REST API construction, with SQL databases, agile methodologies, and Git.',
+      role: 'Software Developer & Full Stack',
+      bio: 'Software Engineering student building modern, scalable web solutions with Python, FastAPI, Java, Spring Boot, Angular, and React. Skilled in UX/UI, REST APIs, and databases such as PostgreSQL, MySQL, and MongoDB.',
       viewProjects: 'View Projects',
       downloadCv: 'Download CV'
     },
     about: {
       title: 'Professional Profile',
-      p1: 'Software Engineering student with experience in full-stack web development using Java, Spring Boot, and Angular. Skilled in frontend development, UX/UI design, and REST API construction.',
-      p2: 'Experienced with SQL databases, agile methodologies, and version control with Git. Focused on continuous learning and building efficient, user-centered technological solutions.',
+      p1: 'Software Engineering student and Full Stack Developer focused on building modern, scalable, production-oriented web solutions. I have experience developing applications with Python, FastAPI, Java, Spring Boot, Angular, React, and Vue.js, integrating REST APIs, layered architecture, and solid development practices.',
+      p2: 'I work with JavaScript, TypeScript, PHP, and databases such as PostgreSQL, MySQL, Oracle, MongoDB, and MariaDB, applying agile methodologies, Git, and Docker. My approach combines software architecture, performance, and user experience to deliver maintainable, secure applications aligned with real business goals. I enjoy turning complex needs into clear, efficient technical solutions.',
       stats: ['Technologies', 'Years of Experience', 'Certifications', 'GitHub Projects'],
       statValues: ['20+', '3+', '2', '10+']
     },
@@ -154,7 +156,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
         },
         {
           company: 'Faxt',
-          period: '2022 - Present',
+          period: '2026 - Present',
           role: 'Front-End Developer & Database Management',
           description:
             'Database design and structuring for technology projects. Front-end development focused on UX, usability, and responsive design. Visual component building, database integration, and collaborative platform improvement.'
@@ -186,6 +188,8 @@ export const I18N: Record<Lang, PortfolioCopy> = {
       titlePrefix: 'Featured',
       titleHighlight: 'Projects',
       exploreGithub: 'Explore GitHub',
+      viewImage: 'View project image',
+      closeImage: 'Close image',
       projects: [
         {
           title: 'Veterinary Clinic API',
@@ -193,7 +197,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'REST API for a veterinary clinic built with Java 17 and Spring Boot. CRUD for owners, pets, veterinarians, appointments, and medical records with MySQL and Docker Compose.',
           tags: ['Java', 'Spring Boot', 'MySQL'],
           url: 'https://github.com/AlejaMejia29/Clinica_Veterinaria',
-          image: 'assets/projects/clinica-veterinaria.svg',
+          image: 'assets/projects/clinica-veterinaria.png',
           imageAlt: 'Veterinary clinic REST API with Spring Boot'
         },
         {
@@ -202,7 +206,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'Machine Learning project applied to HR analytics: EDA, data preparation, model training, metric comparison, and predictive analysis with Python.',
           tags: ['Python', 'Pandas', 'Jupyter'],
           url: 'https://github.com/AlejaMejia29/ProyectoFinal-Mejia-Sosa',
-          image: 'assets/projects/ml-rrhh.svg',
+          image: 'assets/projects/ml-rrhh.png',
           imageAlt: 'Machine Learning analytics dashboard for human resources'
         },
         {
@@ -211,7 +215,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'Mini-GPT in PyTorch for food review sentiment classification (positive/negative) using Transformer decoders, tokenization, embeddings, and multi-head causal attention. Accuracy: 90.68%.',
           tags: ['PyTorch', 'NLP', 'Transformers'],
           url: 'https://github.com/SebasSosa10/mini-gpt-analisis-sentimientos',
-          image: 'assets/projects/mini-gpt-nlp.svg',
+          image: 'assets/projects/mini-gpt-nlp.png',
           imageAlt: 'Mini-GPT Transformer model for NLP sentiment analysis'
         },
         {
@@ -220,7 +224,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'Front-end prototype inspired by TUL for hardware order tracking with role-based views (customer, seller, support, logistics), dashboards, order history, delay alerts, and logistics flow visualization. React, Vite, TypeScript, and Tailwind CSS.',
           tags: ['React', 'TypeScript', 'Tailwind'],
           url: 'https://github.com/JilmarV/redisenio-seguimiento-pedidos-tul',
-          image: 'assets/projects/tul-pedidos.svg',
+          image: 'assets/projects/tul-pedidos.png',
           imageAlt: 'TUL-inspired order tracking dashboard prototype'
         }
       ]
@@ -277,7 +281,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
     },
     footer: {
       description:
-        'Software Engineering student focused on full-stack development, requirements analysis, and building efficient, user-centered technological solutions.',
+        'Software Engineering student and Full Stack Developer focused on modern web solutions with Python, FastAPI, Java, Spring Boot, Angular, React, and scalable databases.',
       quickLinks: 'Quick Links',
       aboutMe: 'About Me',
       portfolio: 'Portfolio',
@@ -298,17 +302,17 @@ export const I18N: Record<Lang, PortfolioCopy> = {
       contact: 'Contacto'
     },
     hero: {
-      badge: 'Disponible para proyectos',
+      badge: 'Disponible',
       iam: 'Soy',
-      role: 'Desarrolladora de Software',
-      bio: 'Ingeniera de Software en formación con experiencia en desarrollo web full stack con Java, Spring Boot y Angular. Conocimientos en frontend, diseño UX/UI, APIs REST, bases de datos SQL, metodologías ágiles y Git.',
+      role: 'Ingeniera de Software & Full Stack',
+      bio: 'Ingeniera de Software en formación, enfocada en soluciones web modernas y escalables con Python, FastAPI, Java, Spring Boot, Angular y React. Experiencia en UX/UI, APIs REST y bases de datos como PostgreSQL, MySQL y MongoDB.',
       viewProjects: 'Ver proyectos',
       downloadCv: 'Descargar CV'
     },
     about: {
       title: 'Perfil profesional',
-      p1: 'Ingeniera de Software en formación con experiencia en desarrollo web full stack utilizando Java, Spring Boot y Angular. Con conocimientos en desarrollo frontend, diseño de interfaces UX/UI y construcción de APIs REST.',
-      p2: 'Experiencia trabajando con bases de datos SQL, metodologías ágiles y herramientas de control de versiones como Git. Orientada al aprendizaje continuo y al desarrollo de soluciones tecnológicas eficientes.',
+      p1: 'Ingeniera de Software en formación y desarrolladora Full Stack, especializada en construir soluciones web modernas, escalables y orientadas a producción. Cuento con experiencia desarrollando aplicaciones con Python, FastAPI, Java, Spring Boot, Angular, React y Vue.js, integrando APIs REST, arquitectura en capas y buenas prácticas de desarrollo.',
+      p2: 'Trabajo con JavaScript, TypeScript, PHP y bases de datos como PostgreSQL, MySQL, Oracle, MongoDB y MariaDB, aplicando metodologías ágiles, Git y Docker. Mi enfoque combina arquitectura de software, rendimiento y experiencia de usuario para entregar aplicaciones mantenibles, seguras y alineadas con objetivos reales. Disfruto transformar necesidades complejas en soluciones técnicas claras y eficientes.',
       stats: ['Tecnologías', 'Años de experiencia', 'Certificaciones', 'Proyectos en GitHub'],
       statValues: ['20+', '3+', '2', '10+']
     },
@@ -332,7 +336,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
         },
         {
           company: 'Faxt',
-          period: '2022 - Actualidad',
+          period: '2026 - Actualidad',
           role: 'Desarrolladora Front-End y gestión de base de datos',
           description:
             'Diseño y estructuración de bases de datos para proyectos tecnológicos. Desarrollo front-end enfocado en UX, usabilidad y diseño responsive. Construcción de componentes visuales, integración con bases de datos y mejora continua colaborativa.'
@@ -364,6 +368,8 @@ export const I18N: Record<Lang, PortfolioCopy> = {
       titlePrefix: 'Proyectos',
       titleHighlight: 'destacados',
       exploreGithub: 'Explorar GitHub',
+      viewImage: 'Ver imagen del proyecto',
+      closeImage: 'Cerrar imagen',
       projects: [
         {
           title: 'API Clínica Veterinaria',
@@ -371,7 +377,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'API REST de clínica veterinaria en Java 17 y Spring Boot. CRUD de dueños, mascotas, veterinarios, citas e historiales médicos con MySQL y Docker Compose.',
           tags: ['Java', 'Spring Boot', 'MySQL'],
           url: 'https://github.com/AlejaMejia29/Clinica_Veterinaria',
-          image: 'assets/projects/clinica-veterinaria.svg',
+          image: 'assets/projects/clinica-veterinaria.png',
           imageAlt: 'API REST de clínica veterinaria con Spring Boot'
         },
         {
@@ -380,7 +386,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'Proyecto de Machine Learning aplicado a analítica de Recursos Humanos: EDA, preparación de datos, entrenamiento de modelos, comparación de métricas y análisis predictivo con Python.',
           tags: ['Python', 'Pandas', 'Jupyter'],
           url: 'https://github.com/AlejaMejia29/ProyectoFinal-Mejia-Sosa',
-          image: 'assets/projects/ml-rrhh.svg',
+          image: 'assets/projects/ml-rrhh.png',
           imageAlt: 'Panel de analítica de recursos humanos con Machine Learning'
         },
         {
@@ -389,7 +395,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'Mini-GPT en PyTorch para clasificar reseñas de comida como positive/negative con arquitectura Transformer, tokenización, embeddings y atención causal multi-head. Accuracy: 90.68%.',
           tags: ['PyTorch', 'NLP', 'Transformers'],
           url: 'https://github.com/SebasSosa10/mini-gpt-analisis-sentimientos',
-          image: 'assets/projects/mini-gpt-nlp.svg',
+          image: 'assets/projects/mini-gpt-nlp.png',
           imageAlt: 'Mini-GPT con Transformers para análisis de sentimiento NLP'
         },
         {
@@ -398,7 +404,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
             'Prototipo Front-End inspirado en TUL para seguimiento de pedidos de ferretería con vistas por rol (cliente, vendedor, atención, logística), dashboards, historial, alertas de retraso y flujo logístico. React, Vite, TypeScript y Tailwind CSS.',
           tags: ['React', 'TypeScript', 'Tailwind'],
           url: 'https://github.com/JilmarV/redisenio-seguimiento-pedidos-tul',
-          image: 'assets/projects/tul-pedidos.svg',
+          image: 'assets/projects/tul-pedidos.png',
           imageAlt: 'Prototipo de seguimiento de pedidos inspirado en TUL'
         }
       ]
@@ -455,7 +461,7 @@ export const I18N: Record<Lang, PortfolioCopy> = {
     },
     footer: {
       description:
-        'Estudiante de Ingeniería de Software enfocada en desarrollo full stack, análisis de requerimientos y soluciones tecnológicas eficientes centradas en el usuario.',
+        'Ingeniera de Software en formación y desarrolladora Full Stack, enfocada en soluciones web modernas con Python, FastAPI, Java, Spring Boot, Angular, React y bases de datos escalables.',
       quickLinks: 'Enlaces rápidos',
       aboutMe: 'Sobre mí',
       portfolio: 'Portafolio',
